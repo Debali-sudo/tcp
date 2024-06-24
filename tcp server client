@@ -1,0 +1,11 @@
+Server side
+import netpack as npk
+s = npk.create_tcp_socket() ADDR = ("127.0.0.1",30000)
+npk.start_tcp_server(s,ADDR) c_s,addr = npk.accept_tcp_client(s) addr
+server_Data = npk.read_data_from_tcp_client(c_s) server_Data
+npk.close_socket_connection(c_s) npk.close_socket_connection(s)
+Client side
+import netpack as npk
+c = npk.create_tcp_socket() Addr = ("127.0.0.1",30000)
+npk.connect_to_tcp_server(c,Addr) npk.send_data_to_tcp_server(c,"Hello guys")
+npk.close_socket_connection(c)
